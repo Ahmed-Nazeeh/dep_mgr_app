@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: dep_mgr_app_production
-  username: dep_mgr_app
+  username: <%= ENV['DEP_MGR_APP_DATABASE_USERNAME'] %>
   password: <%= ENV['DEP_MGR_APP_DATABASE_PASSWORD'] %>
