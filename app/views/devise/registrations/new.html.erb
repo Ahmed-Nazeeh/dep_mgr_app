@@ -4,6 +4,27 @@
   <%= bootstrap_devise_error_messages! %>
 
   <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, autofocus: true, autocomplete: 'first_name', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: 'last_name', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :company %>
+    <%= f.text_field :company, autofocus: true, autocomplete: 'company', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :position %>
+    <%= f.text_field :position, autofocus: true, autocomplete: 'position', class: 'form-control' %>
+  </div>
+  
+
+  <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>

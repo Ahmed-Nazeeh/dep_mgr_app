@@ -1,0 +1,77 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :order_number %>
+    <%= form.text_field :order_number, value: @order_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recieved %>
+    <%= form.text_field :recieved %>
+  </div>
+
+  <div class="field">
+    <%= form.label :recieved_by %>
+    <%= form.text_field :recieved_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :approved %>
+    <%= form.text_field :approved %>
+  </div>
+
+  <div class="field">
+    <%= form.label :approved_by %>
+    <%= form.text_field :approved_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :closed %>
+    <%= form.text_field :closed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :closed_by %>
+    <%= form.text_field :closed_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :remarks %>
+    <%= form.text_area :remarks %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :actions %>
+    <%= form.text_field :actions %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

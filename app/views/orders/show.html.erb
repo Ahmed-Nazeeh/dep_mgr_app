@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order number:</strong>
+  <%= @order.order_number %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @order.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @order.description %>
+</p>
+
+<p>
+  <strong>Recieved:</strong>
+  <%= @order.recieved %>
+</p>
+
+<p>
+  <strong>Recieved by:</strong>
+  <%= @order.recieved_by %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @order.approved %>
+</p>
+
+<p>
+  <strong>Approved by:</strong>
+  <%= @order.approved_by %>
+</p>
+
+<p>
+  <strong>Closed:</strong>
+  <%= @order.closed %>
+</p>
+
+<p>
+  <strong>Closed by:</strong>
+  <%= @order.closed_by %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @order.remarks %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Actions:</strong>
+  <%= @order.actions %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
