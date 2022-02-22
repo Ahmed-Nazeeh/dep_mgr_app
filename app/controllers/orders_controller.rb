@@ -60,15 +60,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def get_order_id  #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< in case of nil it will give error
-    if nil? 
-      order_id = 1
-    else
-      order_id = Order.last.id + 1
-    end
-    year = Date.today.year
-    "WO - #{order_id} - #{year}"
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -81,8 +73,17 @@ class OrdersController < ApplicationController
       params.require(:order).permit(:order_number, :title, :description, :recieved, :recieved_by, :approved, :approved_by, :closed, :closed_by, :remarks, :status, :actions)
     end
 
-
+    def get_order_id  #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< in case of nil it will give error
+      order = Order.all
+      if order.empty? 
+        order_id = 1
+      else
+        order_id = Order.last.id + 1
+      end
+      year_day = Date.today.yday
+    year = Date.today.year
+    "WO-#{year_day}-#{order_id}-#{year}"
     
-  
-
+    end
+    
   end
