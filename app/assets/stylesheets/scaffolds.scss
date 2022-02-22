@@ -21,7 +21,7 @@ a:visited {
 
 a:hover {
   color: #fff;
-  background-color: #000; }
+  background-color: rgb(179, 177, 177); }
 
 th {
   padding-bottom: 5px; }
@@ -63,3 +63,7 @@ div.actions {
 
 label {
   display: block; }
+
+textarea.form-control {
+    height: 200px;
+}
