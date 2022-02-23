@@ -48,7 +48,7 @@
             
               <%= form.select :recieved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, 
                                     {class: "form-control", 
-                                    :disabled => (current_user.is_admin?  ? false : true)} %>
+                                    :disabled => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
             
             </div>
 
@@ -97,10 +97,7 @@
         </div>
       
       
-      
-        <div class="form-group">
-          <%= form.submit class: 'btn btn-primary', :disabled => false  %>
-        </div>
+  
       
       
       <% end %>

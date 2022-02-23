@@ -25,7 +25,8 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
-    
+    @order.user = current_user
+    @order.order_number = @order_id
 
     respond_to do |format|
       if @order.save
@@ -61,13 +62,7 @@ class OrdersController < ApplicationController
     end
   end
 
-  def select_field_disable_enable
-    if current_user.is_admin?
-      return :disabled => false 
-    else
-      return :disabled => true 
-    end
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -81,7 +76,14 @@ class OrdersController < ApplicationController
     end
 
     def get_order_id  #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< in case of nil it will give error
-      @order ? order_id = Order.last.id + 1 : order_id = 1
+      order = Order.all 
+
+      if order.empty?
+        order_id = 1
+      else
+        order_id = Order.last.id + 1
+      end
+      # @orders ? order_id = Order.last.id + 1 : order_id = 1
       year_day = Date.today.yday
       year = Date.today.year
       "WO-#{year_day}-#{order_id}-#{year}"
