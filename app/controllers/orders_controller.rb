@@ -19,6 +19,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+      @order_id = @order.order_number
   end
 
   # POST /orders or /orders.json
@@ -60,7 +61,13 @@ class OrdersController < ApplicationController
     end
   end
 
-  
+  def select_field_disable_enable
+    if current_user.is_admin?
+      return :disabled => false 
+    else
+      return :disabled => true 
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,16 +81,12 @@ class OrdersController < ApplicationController
     end
 
     def get_order_id  #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< in case of nil it will give error
-      order = Order.all
-      if order.empty? 
-        order_id = 1
-      else
-        order_id = Order.last.id + 1
-      end
+      @order ? order_id = Order.last.id + 1 : order_id = 1
       year_day = Date.today.yday
-    year = Date.today.year
-    "WO-#{year_day}-#{order_id}-#{year}"
-    
+      year = Date.today.year
+      "WO-#{year_day}-#{order_id}-#{year}"
     end
+
+    
     
   end

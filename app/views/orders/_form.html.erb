@@ -14,80 +14,97 @@
       
       
             <div class="row">
-              <div class="field col-md-3">
+              <div class="field col-md-3 ">
                 <%= form.label :order_number %>
-                <%= form.text_field :order_number, value: @order_id, class: "form-control" %>
+                <%= form.text_field :order_number, value: @order_id, class: "form-control", :disabled => true %>
               </div>
+
+              <div class="field col-md-3 ">
+                <%= form.label :issued_by %>
+                <%= form.text_field :issued_by, value: current_user.email, class: "form-control", :disabled => true %>
+              </div>
+
               <div class="field col-md-12">
                 <%= form.label :title %>
-                <%= form.text_field :title, class: "form-control" %>
+                <%= form.text_field :title, class: "form-control", :disabled => false %>
               </div>
             </div>
-      
-      
       
         <div class="row">
           <div class="field col-md-12">
             <%= form.label :description %>
-            <%= form.text_area :description, class: "form-control" %>
+            <%= form.text_area :description, class: "form-control", :disabled => false %>
           </div>
+        </div> 
+        
+        <div class="form-group">  
+          <%= form.submit class: 'btn btn-primary', :disabled => false  %>
         </div>
-      
+        <hr>
+
         <div class="row">
           <div class="field col-md-3">
             <%= form.label :recieved %>
-            <%= form.select :recieved, options_for_select(["Yes", "No"]), {:prompt => "Select One"}, {class: "form-control"} %>
-          </div>
+            
+              <%= form.select :recieved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, 
+                                    {class: "form-control", 
+                                    :disabled => (current_user.is_admin?  ? false : true)} %>
+            
+            </div>
 
           <div class="field col-md-3">
             <%= form.label :recieved_by %>
-            <%= form.text_field :recieved_by, class: "form-control" %>
+            <%= form.text_field :recieved_by, class: "form-control", :disabled => true %>
           </div>
           <div class="field col-md-3">
             <%= form.label :approved %>
-            <%= form.select :approved,options_for_select(["Yes", "No"]), {prompt: "select one"},  {class: "form-control"} %>
+            <%= form.select :approved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
           </div>
           <div class="field col-md-3">
             <%= form.label :approved_by %>
-            <%= form.text_field :approved_by, class: "form-control" %>
+            <%= form.text_field :approved_by, class: "form-control", :disabled => true %>
           </div>
         </div>
       
         <div class="row">
           <div class="field col-md-3">
             <%= form.label :closed %>
-            <%= form.select :closed,options_for_select(["Yes", "No"]), {prompt: "Select one"}, {class: "form-control"} %>
+            <%= form.select :closed, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
           </div>
           <div class="field col-md-3">
             <%= form.label :closed_by %>
-            <%= form.text_field :closed_by, class: "form-control" %>
+            <%= form.text_field :closed_by, class: "form-control", :disabled => true %>
           </div>
         </div>
-      
+
+        
         <div class="row">
           <div class="field col-md-3">
             <%= form.label :status %>
-            <%= form.select :status,options_for_select(["Inprogress", "Pendding"]), {prompt: "Select one"}, {class: "form-control"} %>
+            <%= form.select :status, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
           </div>
           <div class="field col-md-3">
             <%= form.label :actions %>
-            <%= form.text_field :actions, class: "form-control" %>
+            <%= form.text_field :actions, class: "form-control", :disabled => false %>
           </div>
         </div>
       
         <div class="row">
           <div class="field col-md-12">
             <%= form.label :remarks %>
-            <%= form.text_area :remarks, class: "form-control" %>
+            <%= form.text_area :remarks, class: "form-control", :disabled => false %>
           </div>
         </div>
       
       
       
         <div class="form-group">
-          <%= form.submit class: 'btn btn-primary' %>
+          <%= form.submit class: 'btn btn-primary', :disabled => false  %>
         </div>
       
       
       <% end %>
  
+
+
+   
