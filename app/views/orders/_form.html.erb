@@ -16,12 +16,12 @@
             <div class="row">
               <div class="field col-md-3 ">
                 <%= form.label :order_number %>
-                <%= form.text_field :order_number, value: @order_id, class: "form-control", :disabled => false %>
+                <%= form.text_field :order_number, value: @order_id, class: "form-control", :readonly => true %>
               </div>
 
               <div class="field col-md-3 ">
                 <%= form.label :issued_by %>
-                <%= form.text_field :issued_by, value: current_user.email, class: "form-control", :disabled => false %>
+                <%= form.text_field :issued_by, value: current_user.email, class: "form-control", :readonly => true %>
               </div>
 
               <div class="field col-md-12">

@@ -38,7 +38,7 @@
                 <td><%= order.status %></td>
                 
                 <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
-                    <% if current_user.is_admin? || order.issued_by == current_user.email %>
+                    <% if current_user.is_admin? || current_user.id == order.user_id %>
                       <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
                     <% end %>
                     <% if current_user.is_admin? %>
