@@ -73,18 +73,31 @@ class OrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def order_params
-      params.require(:order).permit(:order_number, :title, :description, :recieved, :recieved_by, :approved, :approved_by, :closed, :closed_by, :remarks, :status, :actions)
+      params.require(:order).permit(:order_number, :title, :description, :recieved, :recieved_by, :approved, :approved_by, :closed, :closed_by, :remarks, :status, :actions, :issued_by)
     end
 
-    def get_order_id  #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< in case of nil it will give error
-      order = Order.all 
+    # def get_order_id  #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< in case of nil it will give error
+    #   order = Order.all 
 
-      if order.empty?
-        order_id = 1
-      else
+    #   if order.empty?
+    #     order_id = 1
+    #   else
+    #     order_id = Order.last.id + 1
+    #   end
+    #   # @orders ? order_id = Order.last.id + 1 : order_id = 1
+    #   year_day = Date.today.yday
+    #   year = Date.today.year
+    #   "WO-#{year_day}-#{order_id}-#{year}"
+    # end
+
+    def get_order_id
+      order = Order.where(id: 1)
+
+      if order.exists?
         order_id = Order.last.id + 1
+      else
+        order_id = 1
       end
-      # @orders ? order_id = Order.last.id + 1 : order_id = 1
       year_day = Date.today.yday
       year = Date.today.year
       "WO-#{year_day}-#{order_id}-#{year}"

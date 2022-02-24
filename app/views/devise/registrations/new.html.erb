@@ -22,6 +22,19 @@
     <%= f.label :position %>
     <%= f.text_field :position, autofocus: true, autocomplete: 'position', class: 'form-control' %>
   </div>
+
+  <div class="form-group">
+      <%= f.label :department %>
+      <%= f.select :department, 
+      options_for_select(["Construction", "Production", "Projects", "electrical", "Mechanical", 
+                          "safety", "Materials", "Civil", "Suport Service"]),{:prompt => "Select One"}, 
+                          {class: "form-control",:disabled => false} %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :department %>
+    <%= f.text_field :department, autofocus: true, autocomplete: 'department', class: 'form-control' %>
+  </div>
   
 
   <div class="form-group">

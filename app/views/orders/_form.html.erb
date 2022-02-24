@@ -12,9 +12,9 @@
           </div>
         <% end %>
       
-      
+      <h2 class="mb-4"><strong>Issue Order</strong></h2>
             <div class="row">
-              <div class="field col-md-3 ">
+              <div class="field col-md-3">
                 <%= form.label :order_number %>
                 <%= form.text_field :order_number, value: @order_id, class: "form-control", :readonly => true %>
               </div>
@@ -22,6 +22,11 @@
               <div class="field col-md-3 ">
                 <%= form.label :issued_by %>
                 <%= form.text_field :issued_by, value: current_user.email, class: "form-control", :readonly => true %>
+              </div>
+
+              <div class="field col-md-3 ">
+                <%= form.label :department %>
+                <%= form.text_field :department, value: current_user.department, class: "form-control", :readonly => true %>
               </div>
 
               <div class="field col-md-12">
@@ -42,7 +47,11 @@
         </div>
         <hr>
 
-        <div class="row">
+        
+        <h2 h2 class="text-center mb-5"><strong>Approval</strong></h2>
+    
+
+        <div class="row mb-4">
           <div class="field col-md-3">
             <%= form.label :recieved %>
             
@@ -50,23 +59,32 @@
                                     {class: "form-control", 
                                     :disabled => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
             
-            </div>
+          </div>
 
           <div class="field col-md-3">
             <%= form.label :recieved_by %>
             <%= form.text_field :recieved_by, class: "form-control", :disabled => true %>
           </div>
+
           <div class="field col-md-3">
-            <%= form.label :approved %>
-            <%= form.select :approved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
-          </div>
-          <div class="field col-md-3">
-            <%= form.label :approved_by %>
-            <%= form.text_field :approved_by, class: "form-control", :disabled => true %>
+            <%= form.label :status %>
+            <%= form.select :status, options_for_select(["Pennding Approvals", "In Progress"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
           </div>
         </div>
+
+          <div class="row mb-4">
+            <div class="field col-md-3">
+              <%= form.label :approved %>
+              <%= form.select :approved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
+            </div>
+            <div class="field col-md-3">
+              <%= form.label :approved_by %>
+              <%= form.text_field :approved_by, class: "form-control", :disabled => true %>
+            </div>
+          </div>
+        
       
-        <div class="row">
+        <div class="row mb-4">
           <div class="field col-md-3">
             <%= form.label :closed %>
             <%= form.select :closed, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
@@ -75,14 +93,8 @@
             <%= form.label :closed_by %>
             <%= form.text_field :closed_by, class: "form-control", :disabled => true %>
           </div>
-        </div>
-
         
-        <div class="row">
-          <div class="field col-md-3">
-            <%= form.label :status %>
-            <%= form.select :status, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
-          </div>
+
           <div class="field col-md-3">
             <%= form.label :actions %>
             <%= form.text_field :actions, class: "form-control", :disabled => false %>
