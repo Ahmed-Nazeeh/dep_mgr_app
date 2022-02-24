@@ -10,15 +10,10 @@
               <th class="col-2">Title</th>
               <th class="col-4">Description</th>
               <th>Recieved</th>
-              
               <th>Approved</th>
-              
               <th>Closed</th>
-              
-              
               <th>Status</th>
               <th>Action</th>
-              
             </tr>
           </thead>
 
@@ -29,21 +24,14 @@
                 <td><%= order.title %></td>
                 <td><%= order.description %></td>
                 <td><%= order.recieved %></td>
-                
                 <td><%= order.approved %></td>
-                
                 <td><%= order.closed %></td>
-                
-               
-                <td><%= order.status %></td>
-                
+                <td><%= order.status %></td> 
                 <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
-                    <% if current_user.is_admin? || current_user.id == order.user_id %>
+                    <% if current_user.is_admin? || current_user.id == order.user_id || current_user.position == "Fields General Manager" %>
                       <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
                     <% end %>
-                    <% if current_user.is_admin? %>
-                      <%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-                    <% end %>
+                    <%= (link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger') if current_user.is_admin? %> 
                 </td>
               </tr>
             <% end %>
@@ -54,3 +42,4 @@
     
     </div>
 </div>
+

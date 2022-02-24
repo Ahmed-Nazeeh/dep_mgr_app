@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = Order.all
+    @orders = get_last_ten_records
     
   end
 
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
-    byebug 
+    #byebug 
     @order.user = current_user
     # @order.order_number = @order_id
 
@@ -103,6 +103,8 @@ class OrdersController < ApplicationController
       "WO-#{year_day}-#{order_id}-#{year}"
     end
 
-    
+    def get_last_ten_records
+      Order.limit(10).order('id desc').reverse
+    end
     
   end

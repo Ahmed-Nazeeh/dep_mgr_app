@@ -47,42 +47,40 @@
         </div>
         <hr>
 
-        
         <h2 h2 class="text-center mb-5"><strong>Approval</strong></h2>
-    
-
-        <div class="row mb-4">
-          <div class="field col-md-3">
-            <%= form.label :recieved %>
-            
-              <%= form.select :recieved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, 
-                                    {class: "form-control", 
-                                    :disabled => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
-            
-          </div>
-
-          <div class="field col-md-3">
-            <%= form.label :recieved_by %>
-            <%= form.text_field :recieved_by, class: "form-control", :disabled => true %>
-          </div>
-
-          <div class="field col-md-3">
-            <%= form.label :status %>
-            <%= form.select :status, options_for_select(["Pennding Approvals", "In Progress"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
-          </div>
-        </div>
-
+  
           <div class="row mb-4">
             <div class="field col-md-3">
               <%= form.label :approved %>
-              <%= form.select :approved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
+              <%= form.select :approved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => (current_user.is_admin? || current_user.position == "Fields General Manager" ? false : true)} %>
             </div>
             <div class="field col-md-3">
               <%= form.label :approved_by %>
-              <%= form.text_field :approved_by, class: "form-control", :disabled => true %>
+              <%= form.text_field :approved_by, 
+              class: "form-control", :disabled => (current_user.is_admin? || current_user.position == "Fields General Manager" ? false : true) %>
             </div>
           </div>
         
+          <div class="row mb-4">
+            <div class="field col-md-3">
+              <%= form.label :recieved %>
+              
+                <%= form.select :recieved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, 
+                                      {class: "form-control", 
+                                      :disabled => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
+              
+            </div>
+
+            <div class="field col-md-3">
+              <%= form.label :recieved_by %>
+              <%= form.text_field :recieved_by, class: "form-control", :disabled => true %>
+            </div>
+
+            <div class="field col-md-3">
+              <%= form.label :status %>
+              <%= form.select :status, options_for_select(["Pennding Approvals", "In Progress"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
+            </div>
+        </div>
       
         <div class="row mb-4">
           <div class="field col-md-3">
