@@ -1,6 +1,51 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
 
+  def my_orders 
+    @pendding_orders = get_pendding_orders
+    @my_orders = Order.all
+  
+  
+  
+  end
+
+  def get_pendding_orders
+    orders = Order.all 
+    orders_arr = []
+      orders.each do |order|
+        if order.status == "pendding Approvals"
+        orders_arr << order 
+        end
+      end
+      return orders_arr
+  end
+
+  def search 
+    
+    # render json: params[:order]
+    # byebug
+    if params[:order].present?
+      @orders_search_res = Order.search(params[:order])
+
+      #byebug
+      if @orders_search_res
+          respond_to do |format|
+            format.js {render partial: 'orders/search_result'}
+          end
+      else
+          respond_to do |format|
+            flash.now[:alert] = "Couldn`t find work order"
+            format.js {render partial: 'orders/search_result'}
+          end
+      end
+    else
+          respond_to do |format|
+              flash.now[:alert] = "Please enter order, name , email to search"
+              format.js {render partial: 'orders/search_result'}
+          end
+    end
+  end
+
   # GET /orders or /orders.json
   def index
     @orders = get_last_ten_records
@@ -89,10 +134,9 @@ class OrdersController < ApplicationController
     #   year = Date.today.year
     #   "WO-#{year_day}-#{order_id}-#{year}"
     # end
-
     def get_order_id
       order = Order.where(id: 1)
-
+    
       if order.exists?
         order_id = Order.last.id + 1
       else
@@ -102,9 +146,15 @@ class OrdersController < ApplicationController
       year = Date.today.year
       "WO-#{year_day}-#{order_id}-#{year}"
     end
-
+    
     def get_last_ten_records
       Order.limit(10).order('id desc').reverse
     end
+
+    # def get_pendding_orders
+
+    #   return Order.status = "pendding Approvals"
+    # end
+      
     
   end

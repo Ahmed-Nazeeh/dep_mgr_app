@@ -1,0 +1,44 @@
+<div class="results-block">
+    <%= render 'layouts/messages' %>
+</div>
+
+<% if @orders_search_res %>
+
+        <table class="col-md12">
+        <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th class="col-2">Order Number</th>
+            <th class="col-2">Title</th>
+            <th class="col-4">Description</th>
+            <th>Recieved</th>
+            <th>Approved</th>
+            <th>Closed</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @orders_search_res.each do |order| %>
+            <tr>
+              <td><%= order.order_number %></td>
+              <td><%= order.title %></td>
+              <td><%= order.description %></td>
+              <td><%= order.recieved %></td>
+              <td><%= order.approved %></td>
+              <td><%= order.closed %></td>
+              <td><%= order.status %></td> 
+              <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
+                  <% if current_user.is_admin? || current_user.id == order.user_id || current_user.position == "Fields General Manager" %>
+                    <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
+                  <% end %>
+                  <%= (link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger') if current_user.is_admin? %> 
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+        <table>
+ 
+<% end %>
