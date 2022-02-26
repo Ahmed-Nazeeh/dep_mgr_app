@@ -35,15 +35,25 @@
 
           <tbody>
             <% @orders.each do |order| %>
-              <tr>
+              <tr >
                 <td><%= order.order_number %></td>
                 <td><%= order.title %></td>
                 <td><%= order.description %></td>
                 <td><%= order.recieved %></td>
                 <td><%= order.approved %></td>
                 <td><%= order.closed %></td>
-                <td><%= order.status %></td> 
-                <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
+                
+                <td <% if order.status == 'Pendding Approvals' %> 
+                       class="text-warning">
+                <% elsif order.status == 'In Progress'  %>
+                       class="text-success">
+                <% elsif order.status == 'Completed'  %>
+                       class="text-info">
+                <% else  %>
+                      class="text-danger">
+                <% end %><%= order.status %></td>
+                
+                  <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
                     <% if current_user.is_admin? || current_user.id == order.user_id || current_user.position == "Fields General Manager" %>
                       <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
                     <% end %>

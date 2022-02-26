@@ -31,19 +31,19 @@
 
               <div class="field col-md-12">
                 <%= form.label :title %>
-                <%= form.text_field :title, class: "form-control", :disabled => false %>
+                <%= form.text_field :title, class: "form-control", :readonly => false %>
               </div>
             </div>
       
         <div class="row">
           <div class="field col-md-12">
             <%= form.label :description %>
-            <%= form.text_area :description, class: "form-control", :disabled => false %>
+            <%= form.text_area :description, class: "form-control", :readonly => false %>
           </div>
         </div> 
         
         <div class="form-group">  
-          <%= form.submit class: 'btn btn-primary', :disabled => false  %>
+          <%= form.submit class: 'btn btn-primary', :readonly => false  %>
         </div>
         <hr>
 
@@ -52,7 +52,7 @@
           <div class="row mb-4">
             <div class="field col-md-3">
               <%= form.label :approved %>
-              <%= form.select :approved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => (current_user.is_admin? || current_user.position == "Fields General Manager" ? false : true)} %>
+              <%= form.select :approved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:readonly => (current_user.is_admin? || current_user.position == "Fields General Manager" ? false : true)} %>
             </div>
             <div class="field col-md-3">
               <%= form.label :approved_by %>
@@ -67,7 +67,7 @@
               
                 <%= form.select :recieved, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, 
                                       {class: "form-control", 
-                                      :disabled => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
+                                      :readonly => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
               
             </div>
 
@@ -78,7 +78,7 @@
 
             <div class="field col-md-3">
               <%= form.label :status %>
-              <%= form.select :status, options_for_select( ["Pendding Approvals", "In Progress", "canceled"]),{}, 
+              <%= form.select :status, options_for_select(["Pendding Approvals", "In Progress","Completed", "Canceled"]),{}, 
                                     {class: "form-control",
                                     :readonly => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
             </div>
@@ -87,24 +87,24 @@
         <div class="row mb-4">
           <div class="field col-md-3">
             <%= form.label :closed %>
-            <%= form.select :closed, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
+            <%= form.select :closed, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:readonly => true} %>
           </div>
           <div class="field col-md-3">
             <%= form.label :closed_by %>
-            <%= form.text_field :closed_by, class: "form-control", :disabled => true %>
+            <%= form.text_field :closed_by, class: "form-control", :readonly => true %>
           </div>
         
 
           <div class="field col-md-3">
             <%= form.label :actions %>
-            <%= form.text_field :actions, class: "form-control", :disabled => false %>
+            <%= form.text_field :actions, class: "form-control", :readonly => false %>
           </div>
         </div>
       
         <div class="row">
           <div class="field col-md-12">
             <%= form.label :remarks %>
-            <%= form.text_area :remarks, class: "form-control", :disabled => false %>
+            <%= form.text_area :remarks, class: "form-control", :readonly => false %>
           </div>
         </div>
       
