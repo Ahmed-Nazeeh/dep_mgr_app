@@ -56,8 +56,8 @@
             </div>
             <div class="field col-md-3">
               <%= form.label :approved_by %>
-              <%= form.text_field :approved_by, 
-              class: "form-control", :disabled => (current_user.is_admin? || current_user.position == "Fields General Manager" ? false : true) %>
+              <%= form.text_field :approved_by, value: current_user.email,
+              class: "form-control", :readonly=> (current_user.is_admin? ? false : true) %>
             </div>
           </div>
         
@@ -73,12 +73,14 @@
 
             <div class="field col-md-3">
               <%= form.label :recieved_by %>
-              <%= form.text_field :recieved_by, class: "form-control", :disabled => true %>
+              <%= form.text_field :recieved_by, class: "form-control", :readonly => true %>
             </div>
 
             <div class="field col-md-3">
               <%= form.label :status %>
-              <%= form.select :status, options_for_select(["pendding Approvals", "In Progress"]),{:prompt => "Select One"}, {class: "form-control",:disabled => true} %>
+              <%= form.select :status, options_for_select( ["Pendding Approvals", "In Progress", "canceled"]),{}, 
+                                    {class: "form-control",
+                                    :readonly => (current_user.is_admin? || current_user.department == "Construction" ? false : true)} %>
             </div>
         </div>
       

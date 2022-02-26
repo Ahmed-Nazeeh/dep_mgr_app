@@ -28,7 +28,16 @@ def self.search(param)
   
   
   
-  
+  def get_pendding_orders
+    orders = Order.all 
+    orders_arr = []
+      orders.each do |order|
+        if order.status == "pendding Approvals"
+        orders_arr << order 
+        end
+      end
+      return orders_arr
+  end
 
   
 

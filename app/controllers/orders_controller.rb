@@ -3,22 +3,11 @@ class OrdersController < ApplicationController
 
   def my_orders 
     @pendding_orders = get_pendding_orders
+    
     @my_orders = Order.all
-  
-  
-  
+    #byebug
   end
 
-  def get_pendding_orders
-    orders = Order.all 
-    orders_arr = []
-      orders.each do |order|
-        if order.status == "pendding Approvals"
-        orders_arr << order 
-        end
-      end
-      return orders_arr
-  end
 
   def search 
     
@@ -151,10 +140,16 @@ class OrdersController < ApplicationController
       Order.limit(10).order('id desc').reverse
     end
 
-    # def get_pendding_orders
-
-    #   return Order.status = "pendding Approvals"
-    # end
-      
+    def get_pendding_orders
+      orders = Order.all 
+      orders_arr = []
+        orders.each do |order|
+          if order.status == "Pendding Approvals"
+          orders_arr << order 
+          end
+        end
+        return orders_arr
+      # Order.all
+    end 
     
   end

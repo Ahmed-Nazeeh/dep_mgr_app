@@ -1,6 +1,7 @@
+
 <h1>Orders needs approval</h1>
 <% if current_user.position == "Fields General Manager" %>   
-    <% if @pendding_orders.nil? && current_user.position == "Field General Manager" %>
+    <% if !@pendding_orders.empty? %>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
@@ -36,8 +37,10 @@
             </tbody>
         </table>
     <% else %>
-        <h1 class="secondary mt-5 mb-5"><span> There are no pendding records for you</span> </h1>
+        <h2 class="secondary mt-5 mb-5"><span> There are no pendding records for you</span></h2>
     <% end %>
+<% else %>
+    <h2 class="secondary mt-5 mb-5"><span> items here for fields manager approvals</span></h2>
 <% end %>
 
 
@@ -79,7 +82,7 @@
     </tbody>
 </table>
 <% else %>
-<h1 class="secondary mt-5 mb-5"><span> You have not any orders</span> </h1>
+    <h2 class="secondary mt-5 mb-5"><span> You have not created any orders</span> </h2>
 <% end %>
 
 
