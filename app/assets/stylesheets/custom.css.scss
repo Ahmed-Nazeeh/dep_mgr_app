@@ -66,13 +66,15 @@
 
 
 
+
+
   
   
 
 
 footer {
   position: fixed;
-  background-color: rgb(158, 139, 139);
+  background-color: rgb(255, 255, 255);
   padding: 10px;
   bottom: 0;
   left: 0;
@@ -94,6 +96,8 @@ footer {
   background-color: rgba(29, 235, 29, 0.445); 
 }
 
-pending-approval {
-  color: #d9534f;
+.img-responsive {
+  width: 93px;
+  height: 85px;
 }
+

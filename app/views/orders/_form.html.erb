@@ -87,14 +87,13 @@
         <div class="row mb-4">
           <div class="field col-md-3">
             <%= form.label :closed %>
-            <%= form.select :closed, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control",:readonly => true} %>
+            <%= form.select :closed, options_for_select(["Yes", "No"]),{:prompt => "Select One"}, {class: "form-control", :readonly => true} %>
           </div>
           <div class="field col-md-3">
             <%= form.label :closed_by %>
             <%= form.text_field :closed_by, class: "form-control", :readonly => true %>
           </div>
         
-
           <div class="field col-md-3">
             <%= form.label :actions %>
             <%= form.text_field :actions, class: "form-control", :readonly => false %>
