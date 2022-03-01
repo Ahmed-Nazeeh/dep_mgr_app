@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
   def my_orders 
     @pendding_orders = get_pendding_orders
     
-    @my_orders = Order.all
     #byebug
   end
 
@@ -37,7 +36,8 @@ class OrdersController < ApplicationController
 
   # GET /orders or /orders.json
   def index
-    @orders = get_last_ten_records
+    # @orders = get_last_ten_records
+    @orders = Order.all
     
   end
 
@@ -136,9 +136,9 @@ class OrdersController < ApplicationController
       "WO-#{year_day}-#{order_id}-#{year}"
     end
     
-    def get_last_ten_records
-      Order.limit(10).order('id desc').reverse
-    end
+    # def get_last_ten_records
+    #   Order.limit(10).order('id desc').reverse
+    # end
 
     def get_pendding_orders
       orders = Order.all 
@@ -149,7 +149,6 @@ class OrdersController < ApplicationController
           end
         end
         return orders_arr
-      # Order.all
     end 
     
   end

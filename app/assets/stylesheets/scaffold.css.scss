@@ -10,7 +10,7 @@ html {
   margin: 33px; 
 
  
-  background-image: url("background.jpg");
+  background-image: url("background1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -20,7 +20,9 @@ html {
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+  line-height: 18px; 
+  
+}
 
 pre {
   background-color: #eee;
@@ -151,12 +153,6 @@ a:hover, a:focus {
 }
 
 
-
-
-
-
-
-
 footer {
 position: fixed;
 background-color: rgb(255, 255, 255);
@@ -165,6 +161,7 @@ bottom: 0;
 left: 0;
 width: 100%;
 color: #000;
+
 }
 
 .btn.btn-success {
@@ -186,3 +183,155 @@ width: 93px;
 height: 85px;
 }
 
+.create-order-link-margin {
+  margin-bottom: 20px;
+}
+// -------------------add scroll only to table-------------
+
+// .scrollWrapper {
+
+//   height:500px;
+//   width:1000px;
+// }
+
+// ------------table fixed header scroll----------
+
+// table {
+//   max-width:980px;
+//   table-layout:fixed;
+//   margin:auto; 
+// }
+  
+// th, td {
+//   padding:5px 10px;
+//   border:1px solid #000;
+//   width:calc(100%/7);
+//   overflow:hidden;
+// }
+// thead, tfoot {
+//   background:#f9f9f9;
+//   display:table;
+//   width:100%;
+//   width:calc(100% - 18px);
+// }
+// tbody {
+//   height:auto;
+//   overflow:auto;
+//   overflow-x:hidden;
+//   display:block;
+//   width:100%;
+// }
+// tbody tr {
+//   display:table;
+//   width:100%;
+//   table-layout:fixed;
+// }
+
+// .scrollWrapper {
+
+//   height:500px;
+//   width:1000px;
+// }
+
+// ------------table fixed header scroll----------
+
+
+// .scrollWrapper {
+
+//   height:500px;
+//   width:1000px;
+//   overflow: scroll;
+// }
+
+// thead th {
+//   position: -webkit-sticky; /* for Safari */
+//   position: sticky;
+//   top: 0;
+// }
+
+// tbody th {
+//   position: -webkit-sticky; /* for Safari */
+//   position: sticky;
+//   left: 0;
+// }
+
+// // thead th:first-child {
+// //   left: 0;
+// //   z-index: 1;
+// // }
+
+
+// ---------------------------------------------
+
+// html {
+//   box-sizing: border-box;
+// }
+// *,
+// *:before,
+// *:after {
+//   box-sizing: inherit;
+// }
+// .intro {
+//   max-width: 1280px;
+//   margin: 1em auto;
+// }
+
+.table-scroll {
+  position: relative;
+  width:100%;
+  z-index: 1;
+  margin: auto;
+  overflow: auto;
+  height: 500px;
+}
+.table-scroll table {
+  width: 100%;
+  // min-width: 1280px;
+  margin: auto;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.table-wrap {
+  position: relative;
+}
+.table-scroll th,
+.table-scroll td {
+  padding: 5px 10px;
+  border: 1px solid #000;
+  background: #fff;
+  vertical-align: top;
+}
+.table-scroll thead th {
+  background: #333;
+  color: #fff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+// /* safari and ios need the tfoot itself to be position:sticky also */
+// .table-scroll tfoot,
+// .table-scroll tfoot th,
+// .table-scroll tfoot td {
+//   position: -webkit-sticky;
+//   position: sticky;
+//   bottom: 0;
+//   background: #666;
+//   color: #fff;
+//   z-index:4;
+// }
+
+// a:focus {
+//   background: red;
+// } /* testing links*/
+
+// th:first-child {
+//   position: -webkit-sticky;
+//   position: sticky;
+//   left: 0;
+//   z-index: 2;
+//   background: #ccc;
+// }
+// thead th:first-child,
+// tfoot th:first-child {
+//   z-index: 5;
+// }

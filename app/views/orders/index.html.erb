@@ -1,25 +1,25 @@
-<div class="home">
-  <p id="notice"><%= notice %></p>
-  
-  <div class='search-area'>
-      <%= form_tag search_order_path, remote: true, method: :get do %>
-          <div class="form-group row">
-              <div class="col-sm-9  no-right-padding">
-                <%= text_field_tag :order, params[:order], {placeholder: 'order_number(WO-xx-x-yyyy) , title , or description', autofocus: true, class: "form-control form-control-lg"}  %>
-              </div>
-              <div class="col-sm-3 no-left-padding">
-                  <%= button_tag type: :submit, class: "btn btn-success" do %>
-                      <%= fa_icon 'search 2x' %>
-                  <% end %>
-              </div>
-          </div>
-      <% end %>
-  </div>
-  
-  <div id="search_results"></div>
-  
-  <h1 class="mt-5 mb-3">Last ten Work Orders</h1>
-  
+<p id="notice"><%= notice %></p>
+
+<div class='search-area'>
+    <%= form_tag search_order_path, remote: true, method: :get do %>
+        <div class="form-group row">
+            <div class="col-sm-9  no-right-padding">
+              <%= text_field_tag :order, params[:order], {placeholder: 'order_number(WO-xx-x-yyyy) , title , or description', autofocus: true, class: "form-control form-control-lg"}  %>        
+            </div>
+            <div class="col-sm-3 no-left-padding">
+                <%= button_tag type: :submit, class: "btn btn-success" do %>
+                    <%= fa_icon 'search 2x' %>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+</div>
+      
+<div id="search_results"></div>
+
+<h1 class="mt-5 mb-3">Work Orders</h1>
+
+        <div class="table-scroll">
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
@@ -33,7 +33,6 @@
                 <th>Action</th>
               </tr>
             </thead>
-  
             <tbody>
               <% @orders.each do |order| %>
                 <tr >
@@ -43,7 +42,7 @@
                   <td><%= order.recieved %></td>
                   <td><%= order.approved %></td>
                   <td><%= order.closed %></td>
-  
+          
                   <td <% if order.status == 'Pendding Approvals' %>
                          class="text-warning">
                   <% elsif order.status == 'In Progress'  %>
@@ -53,7 +52,7 @@
                   <% else  %>
                         class="text-danger">
                   <% end %><%= order.status %></td>
-  
+          
                     <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
                       <% if current_user.is_admin? || current_user.id == order.user_id || current_user.position == "Fields General Manager" %>
                         <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
@@ -64,8 +63,8 @@
               <% end %>
             </tbody>
           </table>
-          <br>
-          <%= link_to 'Create New Order', new_order_path, class: 'btn btn-success' %>
-  
-  
-</div>
+        </div>
+        <br>
+        <div class="create-order-link-margin"><%= link_to 'Create New Order', new_order_path, class: 'btn btn-success mb-5' %></div>
+    
+
