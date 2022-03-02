@@ -24,12 +24,42 @@ def self.search(param)
   def self.matches(field_name, param)   #self so that convert it to class method not write User
     where("#{field_name} like ?", "%#{param}%")
   end
+# ------------------------------------------
+def get_order_id
+  order = Order.where(id: 1)
 
+  if order.exists?
+    order_id = Order.last.id + 1
+  else
+    order_id = 1
+  end
+  year_day = Date.today.yday
+  year = Date.today.year
+  "WO-#{year_day}-#{order_id}-#{year}"
+end
+
+# def get_last_ten_records
+#   Order.limit(10).order('id desc').reverse
+# end
+
+def get_pendding_orders
+  orders = Order.all 
+  orders_arr = []
+    orders.each do |order|
+      if order.status == "Pendding Approvals"
+      orders_arr << order 
+      end
+    end
+    return orders_arr
+end 
+
+
+# ---------------------------------------------
   
   def self.to_csv
     # attr_reader :order_nmber, :title, :description
-    attributes = %w{order_number title description}
-
+    attributes = %w{order_number title description recieved recieved_by approved approved_by closed closed_by remarks status actions issued_by}
+   
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
