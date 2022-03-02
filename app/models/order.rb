@@ -24,14 +24,29 @@ def self.search(param)
   def self.matches(field_name, param)   #self so that convert it to class method not write User
     where("#{field_name} like ?", "%#{param}%")
   end
-  
-  
-  
-  
-  
 
   
+  def self.to_csv
+    # attr_reader :order_nmber, :title, :description
+    attributes = %w{order_number title description}
 
+    CSV.generate(headers: true) do |csv|
+      csv << attributes
 
+      all.each do |order|
+        csv << attributes.map{ |attr| order.send(attr) }
+      end
+    end
+  end
+  
+  # def self.to_csv
+  #   attr_accessor :order_nmber, :title, :description
+  #   CSV.generate do |csv|
+  #     csv << column_names
+  #     all.each do |product|
+  #       csv << product.attributes.values_at(*column_names)
+  #     end
+  #   end
+  # end
 
 end

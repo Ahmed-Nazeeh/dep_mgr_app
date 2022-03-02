@@ -37,8 +37,12 @@ class OrdersController < ApplicationController
   # GET /orders or /orders.json
   def index
     # @orders = get_last_ten_records
-    @orders = Order.all
+    @orders = Order.all.order(:order_number)
     
+    respond_to do |format|
+      format.html
+      format.csv { send_data @orders.to_csv, filename: "orders-#{Date.today}.csv" }
+    end
   end
 
   # GET /orders/1 or /orders/1.json

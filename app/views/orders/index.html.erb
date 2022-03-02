@@ -18,7 +18,10 @@
 <div id="search_results"></div>
 
 <h1 class="mt-5 mb-3">Work Orders</h1>
-
+        <p>
+        Download: 
+        <%= link_to 'CSV', orders_path(format: "csv") , class: 'btn btn-success' %>
+        </p>
         <div class="table-scroll">
           <table class="table table-bordered table-hover">
             <thead>
