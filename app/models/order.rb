@@ -42,18 +42,6 @@ end
 #   Order.limit(10).order('id desc').reverse
 # end
 
-def get_pendding_orders
-  orders = Order.all 
-  orders_arr = []
-    orders.each do |order|
-      if order.status == "Pendding Approvals"
-      orders_arr << order 
-      end
-    end
-    return orders_arr
-end 
-
-
 # ---------------------------------------------
   
   def self.to_csv
