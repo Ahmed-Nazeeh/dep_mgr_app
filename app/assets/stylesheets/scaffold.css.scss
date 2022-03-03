@@ -5,18 +5,23 @@ html {
 }
  .mynav-link {
   color: white;
+  text-decoration: none;
 }
 
 .home-page  {
   background-color: rgb(250, 250, 250);
   color: rgb(255, 255, 255);
-  margin: 33px; 
-
- 
+  margin: 30px; 
   background-image: url("background3.jpg"); //add home page back ground
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+
+.home-page .card {
+  color: rgb(0, 0, 0);
+  
 }
 
 
@@ -32,11 +37,13 @@ pre {
   padding: 10px;
   font-size: 11px; }
 
-a {
-  color: rgb(255, 255, 255); 
-  padding-right: 10px;
-  padding-right: 10px;
+  a {
+    color: white;
+    padding-right: 15px;
+    padding-right: 15px;
+    text-decoration: none;
 }
+
 
 a:visited  {
   color: rgb(255, 255, 255);  
@@ -44,12 +51,25 @@ a:visited  {
 
 .dropdown-item:visited {
 color: black;
+text-decoration: none;
 }
 
-a:hover, .dropdown-item:hover {
+
+a:hover, .dropdown-toggle:hover {
   color: rgb(0, 204, 255);
   text-decoration: none;
 }
+
+a:link , .dropdown-toggle:link {
+  text-decoration: none;
+}
+
+
+.dropdown-toggle:visited {
+  text-decoration: none;
+}
+
+
 
 th {
   padding-bottom: 5px; }
@@ -120,7 +140,7 @@ a {
 }
 a:hover, a:focus {
   color: rgb(107, 205, 250) !important;
-  
+  text-decoration: none;
 }
 
 }
@@ -146,6 +166,7 @@ a:hover, a:focus {
     background: #3071a9;
     color: #fff;
   }
+  
   li a {
     margin-right: 5px;
   }
@@ -175,13 +196,13 @@ a:hover, a:focus {
 
 footer {
 position: fixed;
-background-color: rgb(255, 255, 255);
+background-color: rgba(0, 0, 0, 0.377);
 padding: 10px;
 bottom: 0;
 left: 0;
 width: 100%;
-color: #000;
-
+color: rgb(255, 255, 255);
+z-index: 1;
 }
 
 .btn.btn-success {
@@ -198,7 +219,7 @@ text-align: center;
 background-color: rgba(29, 235, 29, 0.445); 
 }
 
-.img-responsive {
+.logo-sizing {
 width: 93px;
 height: 85px;
 }
@@ -296,6 +317,7 @@ height: 85px;
 //   margin: 1em auto;
 // }
 
+
 .table-scroll {
   position: relative;
   width:100%;
@@ -303,6 +325,7 @@ height: 85px;
   margin: auto;
   overflow: auto;
   height: 500px;
+  margin-bottom: 33px;
 }
 .table-scroll table {
   width: 100%;
@@ -360,49 +383,47 @@ height: 85px;
   background-color: rgba(0, 0, 0, 0.363);
 }
 
-a {
-    color: white;
-    padding-right: 20px;
-}
-a {
-    color: #007bff;
-    text-decoration: none;
-    text-decoration-line: none;
-    text-decoration-thickness: initial;
-    text-decoration-style: initial;
-    text-decoration-color: initial;
-    background-color: transparent;
-}
-a {
-    color: #428bca;
-    text-decoration: none;
-    text-decoration-line: none;
-    text-decoration-thickness: initial;
-    text-decoration-style: initial;
-    text-decoration-color: initial;
-}
-a {
-    background: transparent;
-    background-image: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: transparent;
-}
-a {
-    color: #007bff;
-    text-decoration: none;
-    text-decoration-line: none;
-    text-decoration-thickness: initial;
-    text-decoration-style: initial;
-    text-decoration-color: initial;
-    background-color: transparent;
-}
+
+
+// a {
+//     color: #007bff;
+//     text-decoration: none;
+//     text-decoration-line: none;
+//     text-decoration-thickness: initial;
+//     text-decoration-style: initial;
+//     text-decoration-color: initial;
+//     background-color: transparent;
+// }
+// a {
+//     color: #428bca;
+//     text-decoration: none;
+//     text-decoration-line: none;
+//     text-decoration-thickness: initial;
+//     text-decoration-style: initial;
+//     text-decoration-color: initial;
+// }
+// a {
+//     background: transparent;
+//     background-image: initial;
+//     background-position-x: initial;
+//     background-position-y: initial;
+//     background-size: initial;
+//     background-repeat-x: initial;
+//     background-repeat-y: initial;
+//     background-attachment: initial;
+//     background-origin: initial;
+//     background-clip: initial;
+//     background-color: transparent;
+// }
+// a {
+//     color: #b6deff;
+//     text-decoration: none;
+//     text-decoration-line: none;
+//     text-decoration-thickness: initial;
+//     text-decoration-style: initial;
+//     text-decoration-color: initial;
+//     background-color: transparent;
+// }
 user agent stylesheet
 a:-webkit-any-link {
     color: -webkit-link;
@@ -412,5 +433,13 @@ a:-webkit-any-link {
     text-decoration-thickness: initial;
     text-decoration-style: initial;
     text-decoration-color: initial;
+}
+
+.form-group a {
+  color: #000;
+}
+
+.form-group a:hover {
+  color: rgb(71, 176, 247);
 }
 
