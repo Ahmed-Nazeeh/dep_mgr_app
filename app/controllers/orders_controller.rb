@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[ show edit update destroy ]
-
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only:[:edit, :update, :destroy]
+  
   def my_orders 
     @pendding_orders = get_pendding_orders
     
@@ -155,5 +157,13 @@ class OrdersController < ApplicationController
       year_day = Date.today.yday
       year = Date.today.year
       "WO-#{year_day}-#{order_id}-#{year}"
+    end
+
+    def require_same_user
+      if current_user != @order.user 
+        flash[:alert] = "you can only edit or delete your own order"
+        redirect_to @order 
+      end
+
     end
   end

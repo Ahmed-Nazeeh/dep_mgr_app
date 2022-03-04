@@ -57,7 +57,7 @@
                   <% end %><%= order.status %></td>
           
                     <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
-                      <% if current_user.is_admin? || current_user.id == order.user_id || current_user.position == "Fields General Manager" %>
+                      <% if current_user.is_admin? || current_user.id == order.user_id  %>
                         <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
                       <% end %>
                       <%= (link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger') if current_user.is_admin? %>

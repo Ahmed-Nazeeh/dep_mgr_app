@@ -1,5 +1,5 @@
 
-<h1>Orders need approval</h1>
+<h1>Orders Need fields Manager Approval</h1>
 <% if current_user.position == "Fields General Manager" %>   
     <% if !@pendding_orders.empty? %>
         <div class="table-scroll">
@@ -28,7 +28,7 @@
                                 <td><%= order.closed %></td>
                                 <td><%= order.status %></td>
                                 <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
-                                    <% if current_user.is_admin? || current_user.id == order.user_id || current_user.position == "Fields General Manager" %>
+                                    <% if current_user.is_admin? || current_user.id == order.user_id %>
                                     <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
                                     <% end %>
                                     <%= (link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger') if current_user.is_admin? %>
@@ -44,7 +44,7 @@
 <% else %>
     <h2 class="secondary mt-5 mb-5"><span> items here for fields manager approvals</span></h2>
 <% end %>
-
+<hr>
 
 <h1>Orders Issued by Me</h1>
 <p>
@@ -78,7 +78,7 @@ Download:
                         <td><%= order.closed %></td>
                         <td><%= order.status %></td>
                         <td><%= link_to 'Show', order, class: 'btn btn-primary mb-1' %>
-                            <% if current_user.is_admin? || current_user.id == order.user_id || current_user.position == "Fields General Manager" %>
+                            <% if current_user.is_admin? || current_user.id == order.user_id  %>
                             <%= link_to 'Edit', edit_order_path(order), class: 'btn btn-warning mb-1' %>
                             <% end %>
                             <%= (link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger') if current_user.is_admin? %>
