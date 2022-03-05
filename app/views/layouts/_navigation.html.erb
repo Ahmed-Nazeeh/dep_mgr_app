@@ -1,16 +1,18 @@
 <nav class="navbar navbar-expand-lg navbar-light mybg">
 <div class="container-fluid">
-  <div class="d-flex justify-content-start">
-    <%= link_to image_tag("pd-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
-    <%= link_to image_tag("wb-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
-  </div>
+      <%= link_to image_tag("pd-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
+    
+    
+      <%= link_to image_tag("wb-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
+    
+  
   <% if logged_in? %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto ">
         <li class="nav-item <%= 'active' if request.path == root_path %>">  
           
           <%= link_to('Home', root_path , class: "mynav-link") %>
@@ -33,18 +35,18 @@
       </ul>
     <% end %>  
   
-      <ul class="nav navbar-right col-md-4">
-          <% if current_user %>
-          <li class="col-md-8 user-name">
+      <ul class="nav navbar-right col-md-9 d-flex justify-content-end">
+          <% if logged_in? %>
+          <li class="col-md-8 user-name d-flex justify-content-end">
             <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Edit Profile' %>
           </li>
-          <li class="col-md-3 logout"><%= link_to('Logout', destroy_user_session_path, class: 'navbar-link btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
+          <li class="col-md-2 logout d-flex justify-content-end"><%= link_to('Logout', destroy_user_session_path, class: 'navbar-link btn btn-xs btn-danger', title: 'Logout', :method => :delete) %></li>
           <% else %>
-          <li class="col-md-8 user-name">
+          <li class="col-md-10 user-name">
             <!-- plasholder -->
           </li>
-          <li class="col-md-4 d-flex justify-content-end">
-            <%= link_to('Sign In', new_user_session_path, class: 'navbar-link btn btn-primary', title: 'Sign In') %>
+          <li class="col-md-2 d-flex justify-content-end">
+            <%= link_to('Sign In', new_user_session_path, class: 'navbar-link btn btn-primary ', title: 'Sign In') %>
           </li>
           <% end %>
         </ul>     
@@ -52,3 +54,6 @@
     </div>
   </div>
 </nav>
+
+
+

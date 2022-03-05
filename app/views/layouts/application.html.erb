@@ -41,27 +41,29 @@
     <header>
         <%= render 'layouts/navigation' %>
     </header>
-
+   
     <main>
         <div class="container mb-5 mt-5">
           <div class="row">
             <div class="col-lg-9">
-              <%= bootstrap_flash %>
-              <%= yield %>
+              
+                <%= bootstrap_flash %>
+                <%= yield %>
+              
             </div>
           </div><!--/row-->
         </div>
     </main>
     
+    
+      <div class="container">
+        <footer class="text-center">
+          <small>Copyright &copy; <%= link_to "Ahmed Nazeeh", "https://web.facebook.com/ahmed.nazeeh.963/"%></small>
+        </footer>
+      </div>
   </div>
-     
-
-  <footer class="text-center">
-    
-    <small>Copyright &copy; <%= link_to "Ahmed Nazeeh", "https://web.facebook.com/ahmed.nazeeh.963/"%></small>
-
-  </footer>
-    
+  
+  
 
   </body>
 </html>

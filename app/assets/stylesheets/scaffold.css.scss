@@ -6,22 +6,17 @@ html {
  .mynav-link {
   color: white;
   text-decoration: none;
+  padding: 5px;
 }
 
 .home-page  {
   background-color: rgb(250, 250, 250);
   color: rgb(255, 255, 255);
-  margin: 30px; 
+  // margin-left: -17px;   // to give same pagins to the nav through all pages
   background-image: url("background3.jpg"); //add home page back ground
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-
-.home-page .card {
-  color: rgb(0, 0, 0);
-  
 }
 
 
@@ -149,11 +144,13 @@ a:hover, a:focus {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.nav.navbar-right {
-  padding-bottom: 10px;
-  padding-top: 5px;
+// .nav.navbar-right {
+//   padding-bottom: 10px;
+//   padding-top: 5px;
 
-}
+// }
+
+
 
 .nav.navbar-nav {
   .navbar-link {
@@ -200,6 +197,7 @@ background-color: rgba(0, 0, 0, 0.377);
 padding: 10px;
 bottom: 0;
 left: 0;
+border-radius: 5px;
 width: 100%;
 color: rgb(255, 255, 255);
 z-index: 1;
@@ -442,4 +440,3 @@ a:-webkit-any-link {
 .form-group a:hover {
   color: rgb(71, 176, 247);
 }
-
