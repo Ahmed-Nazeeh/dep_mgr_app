@@ -1,9 +1,28 @@
 <body class="home-page">
-  <div class="card text-center bg-warning" style="width: 25rem;">
-    <%= link_to image_tag("workorder.jpg", class: "img-responsive ml-3 mt-3", id: "wo-image"), new_order_path %>
-    <div class="card-body">
-      <h4 class="card-title">Work Order</h4>
-      <p class="card-text">Create new work order and track past ones.</p>
-    </div>
-  </div>
+  <div class="card-deck my-5">
+      <div class="card shadow text-center text-white bg-secondary" style="width: 18rem;">
+        <%= link_to image_tag("workorder.jpg", class: "img-responsive", id: "wo-image"), new_order_path %>
+        <div class="card-body">
+          <h4 class="card-title">Work Order</h4>
+          <p class="card-text">Create new work order and track past ones.</p>
+          
+        </div>
+      </div>
+      <div class="card shadow text-center text-white bg-secondary" style="width: 18rem;">
+        <%= link_to image_tag("tanks.jpg", class: "img-responsive", id: "wo-image"), new_order_path %>
+        <div class="card-body">
+          <h4 class="card-title">Tanks Inspection</h4>
+          <p class="card-text">This partition still under construction</p>
+          
+        </div>
+      </div>
+      <div class="card shadow text-center text-white bg-secondary pt-5" style="width: 18rem;">
+        <%= link_to image_tag("piping.jpg", class: "img-responsive", id: "wo-image"), new_order_path %>
+        <div class="card-body pt-5">
+          <h4 class="card-title">PipeLine Inspection</h4>
+          <p class="card-text">This partition still under construction</p>
+          
+        </div>
+      </div>
 </body>
+

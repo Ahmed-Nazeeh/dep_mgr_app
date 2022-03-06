@@ -1,58 +1,60 @@
-<nav class="navbar navbar-expand-lg navbar-light sticky-top mybg">
-<div class="container-fluid">
-      <div class="d-flex justify-content-start col-sm-8 col-md-10  col-lg-4">
-        <%= link_to image_tag("pd-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
-        <%= link_to image_tag("wb-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
-      </div>
-      
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top mybg mt-5 pb-0">
+
+  <!-- Just an image -->
+  <nav class="navbar navbar-light pb-0">
+    <a class="navbar-brand" href="index.html">
+    <%= link_to image_tag("pd-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
+    <%= link_to image_tag("wb-logo.png", class: "img-responsive logo-sizing", id: "navbar-logo"), root_path %>
+    </a>
+  </nav>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  
-    <div class="collapse navbar-collapse ml-3" id="navbarSupportedContent">
-      <% if logged_in? %>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item <%= 'active' if request.path == root_path %>">  
-            
-            <%= link_to('Home', root_path , class: "mynav-link") %>
-          </li>
-          <li class="nav-item <%= 'active' if request.path == orders_path %>">
-            <%= link_to "Orders Status", orders_path, class: "mynav-link" %>
-          </li>
-          <li class="nav-item dropdown  <%= 'active' if request.path == root_path %>">
-            <a class=" dropdown-toggle mynav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-              Users
-            </a>
 
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'Edit User', edit_user_registration_path , class: "dropdown-item" %>
-              <%= link_to 'My Orders', my_order_path , class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", title: 'Logout', :method => :delete) %>
-            </div>
-          </li>
-        </ul>
-        
-    
-        <ul class="nav navbar-right col-md-8 d-flex justify-content-end">
-            
-            <li class="col-md-6 user-name d-flex justify-content-start d-sm-none d-md-none d-xs-none d-lg-block">
-              <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Edit Profile' %>
-            </li>
-            <li class="col-md-3 logout d-flex justify-content-start d-sm-none d-md-none d-xs-none d-lg-block">
-              <%= link_to('Logout', destroy_user_session_path, class: 'navbar-link btn btn-lg btn-danger', title: 'Logout', :method => :delete) %>
-            </li>
-            <% else %>
-          
-            <li class="col-md-2 d-flex justify-content-end">
-              <%= link_to('Sign In', new_user_session_path, class: 'navbar-link btn btn-lg btn-primary', title: 'Sign In') %>
-            </li>
-          
-          </ul>     
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto float-right">
+    <% if logged_in? %>  
+    <li class="btn btn-outline-light nav-item mr-4 style="width: 120px;" <%= 'active' if request.path == root_path %>">  
+        <%= link_to('Home', root_path , class: "nav-link text-white") %>
+      </li>
+      <li class="btn btn-outline-light nav-item mr-4 style="width: 120px;" <%= 'active' if request.path == orders_path %>">
+        <%= link_to "Orders Status", orders_path, class: "nav-link text-white" %>
+      </li>
+
+      <!-- Dropdown Button -->
+      
+        <li class="btn btn-outline-light nav-item dropdown mr-4" style="width: 120px;">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Users
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'Edit User', edit_user_registration_path , class: "dropdown-item" %>
+            <%= link_to 'My Orders', my_order_path , class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to('Logout', destroy_user_session_path, class: "dropdown-item", title: 'Logout', :method => :delete) %>
+          </div>
+        </li>
+        <% end %>
+      <!-- Normal Button -->
+
+     
+      <% if logged_in? %>
+      <li class="nav-item text-white pt-3" style="width: 180px;">
+          <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 25)).html_safe, edit_user_registration_path, title: 'Edit Profile' %>
+        </li>
+        <li class="nav-item text-white pl-2" style="width: 150px;">
+          <%= link_to('Logout', destroy_user_session_path, class: 'navbar-link btn btn-lg btn-danger', title: 'Logout', :method => :delete) %>
+        </li>
+        <% else %>
+        <li class="nav-item text-white pl-2" style="width: 120px;">
+          <%= link_to('Sign In', new_user_session_path, class: 'navbar-link btn btn-lg btn-primary ', title: 'Sign In') %>
+        </li>
       <% end %>
-    </div>
-    
+      
+
+    </ul>
   </div>
 </nav>
-
-

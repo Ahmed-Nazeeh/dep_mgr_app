@@ -121,11 +121,12 @@ textarea.form-control {
   opacity: 1;
 }
 
-.user-name {
-padding: 0 !important ;
-padding-left: 5px;
-padding-top: 5px !important;
-text-align: center;
+// .user-name {
+// padding: 0 !important ;
+// padding-left: 5px;
+// padding-top: 5px !important;
+// text-align: center;
+// }
 
 a {
     // color: rgb(0, 0, 0) !important;
@@ -139,11 +140,11 @@ a:hover, a:focus {
   text-decoration: none;
 }
 
-}
 
-.nav li a:hover, .nav li a:focus {  // <<<<<<<<<<<<<<<<<<<<<<<<<<<
-  background-color: rgba(0, 0, 0, 0);
-}
+
+// .nav li a:hover, .nav li a:focus {  // <<<<<<<<<<<<<<<<<<<<<<<<<<<
+//   background-color: rgba(0, 0, 0, 0);
+// }
 
 // .nav.navbar-right {
 //   padding-bottom: 10px;
@@ -153,43 +154,43 @@ a:hover, a:focus {
 
 
 
-.nav.navbar-nav {
-  .navbar-link {
-    border-radius: 5px;
-    color: #fff;
-    margin-top: 15px;
-    padding: 8px;
-  }
-  .navbar-link:focus, .navbar-link:hover {
-    background: #3071a9;
-    color: #fff;
-  }
+// .nav.navbar-nav {
+//   .navbar-link {
+//     border-radius: 5px;
+//     color: #fff;
+//     margin-top: 15px;
+//     padding: 8px;
+//   }
+//   .navbar-link:focus, .navbar-link:hover {
+//     background: #3071a9;
+//     color: #fff;
+//   }
   
-  li a {
-    margin-right: 5px;
-  }
-}
+//   li a {
+//     margin-right: 5px;
+//   }
+// }
 
-.nav.navbar-right li {
-  .btn {
-    color: #fff !important;
-    margin-top: 5%;
-  }
-  .btn-danger:hover, .btn-danger:focus {
-    background-color: darken(#d9534f,20%) !important;
-  }
-  .btn-primary:hover, .btn-primary:focus {
-    background-color: darken(#428bca,20%) !important;
-  }
-}
+// .nav.navbar-right li {
+//   .btn {
+//     color: #fff !important;
+//     margin-top: 5%;
+//   }
+//   .btn-danger:hover, .btn-danger:focus {
+//     background-color: darken(#d9534f,20%) !important;
+//   }
+//   .btn-primary:hover, .btn-primary:focus {
+//     background-color: darken(#428bca,20%) !important;
+//   }
+// }
 
-.btn-primary:visited, .btn-danger:visited {
-  color: #fff;
-}
+// .btn-primary:visited, .btn-danger:visited {
+//   color: #fff;
+// }
 
-.nav li a {
-    display: inline-block;
-}
+// .nav li a {
+//     display: inline-block;
+// }
 
 
 footer {
@@ -204,9 +205,9 @@ color: rgb(255, 255, 255);
 z-index: 1;
 }
 
-.btn.btn-success {
-color: white;
-}
+// .btn.btn-success {
+// color: white;
+// }
 
 .secondary {
 text-align: center; 
@@ -383,46 +384,6 @@ height: 85px;
 }
 
 
-
-// a {
-//     color: #007bff;
-//     text-decoration: none;
-//     text-decoration-line: none;
-//     text-decoration-thickness: initial;
-//     text-decoration-style: initial;
-//     text-decoration-color: initial;
-//     background-color: transparent;
-// }
-// a {
-//     color: #428bca;
-//     text-decoration: none;
-//     text-decoration-line: none;
-//     text-decoration-thickness: initial;
-//     text-decoration-style: initial;
-//     text-decoration-color: initial;
-// }
-// a {
-//     background: transparent;
-//     background-image: initial;
-//     background-position-x: initial;
-//     background-position-y: initial;
-//     background-size: initial;
-//     background-repeat-x: initial;
-//     background-repeat-y: initial;
-//     background-attachment: initial;
-//     background-origin: initial;
-//     background-clip: initial;
-//     background-color: transparent;
-// }
-// a {
-//     color: #b6deff;
-//     text-decoration: none;
-//     text-decoration-line: none;
-//     text-decoration-thickness: initial;
-//     text-decoration-style: initial;
-//     text-decoration-color: initial;
-//     background-color: transparent;
-// }
 user agent stylesheet
 a:-webkit-any-link {
     color: -webkit-link;
@@ -442,11 +403,6 @@ a:-webkit-any-link {
   color: rgb(71, 176, 247);
 }
 
-.navbar-collapse {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.shadow {
+  text-shadow: 2px;
 }
-
-
-
