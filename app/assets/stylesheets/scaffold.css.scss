@@ -441,3 +441,12 @@ a:-webkit-any-link {
 .form-group a:hover {
   color: rgb(71, 176, 247);
 }
+
+.navbar-collapse {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+
