@@ -396,7 +396,11 @@ a:-webkit-any-link {
 }
 
 .form-group a {
-  color: #000;
+  color: rgb(255, 255, 255);
+}
+
+.form-group1 a {
+  color: rgb(0, 0, 0);
 }
 
 .form-group a:hover {
