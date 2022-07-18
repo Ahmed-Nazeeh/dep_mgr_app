@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
 
 belongs_to :user
-    
+has_many :comments, as: :commentable    
 def self.search(param)
     param.strip!
     to_send_back = (order_number_matches(param) + title_matches(param) + description_matches(param)).uniq

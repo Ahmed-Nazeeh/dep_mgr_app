@@ -1,0 +1,27 @@
+<h1>Creat New Comment for Order <%= @order.order_number %></h1>
+
+<%= form_with model: @comment do |form| %>
+        <% if @comment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this order from being saved:</h2>
+            <ul>
+              <% @comment.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      
+            <div class="row">
+              <div class="field col-md-3">
+
+                <%= form.text_area :text,value: @order.order_number, class: "form-control" %>
+              </div>
+        
+        <div class="form-group">  
+          <%= form.submit class: 'btn btn-primary', :readonly => false  %>
+        </div>
+        <hr>
+<% end %>
+
+

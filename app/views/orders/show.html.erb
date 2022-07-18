@@ -1,74 +1,53 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Order number:</strong>
-  <%= @order.order_number %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @order.title %>
-</p>
+<h1 class="mt-5 mb-3"><%= @order.order_number %></h1>
+        <p>
+        Download: 
+        <%= link_to 'CSV', orders_path(format: "csv") , class: 'btn btn-success' %>
+        </p>
+        <div class="table-scroll">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th class="col-2">Order Number</th>
+                <th class="col-2">Title</th>
+                <th class="col-4">Description</th>
+                <th>Recieved</th>
+                <th>Approved</th>
+                <th>Closed</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><%= @order.order_number %></td>
+                  <td><%= @order.title %></td>
+                  <td><%= @order.description %></td>
+                  <td><%= @order.recieved %></td>
+                  <td><%= @order.approved %></td>
+                  <td><%= @order.closed %></td>
+                  <td <% if @order.status == 'Pendding Approvals' %>
+                         @class="text-warning">
+                  <% elsif @order.status == 'In Progress'  %>
+                         class="text-success">
+                  <% elsif @order.status == 'Completed'  %>
+                         class="text-info">
+                  <% else  %>
+                        class="text-danger">
+                  <% end %>
+                     <td> 
+                        <% if current_user.is_admin? || current_user.id == @order.user_id  %>
+                          <%= link_to 'Edit', edit_order_path(@order), class: 'btn btn-warning mb-1' %>
+                        <% end %>
+                        <%= (link_to 'Destroy', @order, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger') if current_user.is_admin? %>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @order.description %>
-</p>
-
-<p>
-  <strong>Department:</strong>
-  <%= @order.user.department %>
-</p>
-
-<p>
-  <strong>Issued_By:</strong>
-  <%= @order.issued_by %>
-</p>
-
-<p>
-  <strong>Recieved:</strong>
-  <%= @order.recieved %>
-</p>
-
-<p>
-  <strong>Recieved by:</strong>
-  <%= @order.recieved_by %>
-</p>
-
-<p>
-  <strong>Approved:</strong>
-  <%= @order.approved %>
-</p>
-
-<p>
-  <strong>Approved by:</strong>
-  <%= @order.approved_by %>
-</p>
-
-<p>
-  <strong>Closed:</strong>
-  <%= @order.closed %>
-</p>
-
-<p>
-  <strong>Closed by:</strong>
-  <%= @order.closed_by %>
-</p>
-
-<p>
-  <strong>Remarks:</strong>
-  <%= @order.remarks %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @order.status %>
-</p>
-
-<p>
-  <strong>Actions:</strong>
-  <%= @order.actions %>
-</p>
+<%= render 'orders/comments' %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

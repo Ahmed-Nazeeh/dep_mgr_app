@@ -54,6 +54,9 @@ class OrdersController < ApplicationController
 
   # GET /orders/1 or /orders/1.json
   def show
+    @comment = Comment.new
+    @comments = Comment.where(commentable_type: :Order, commentable_id: @order.id)
+    #byebug
   end
 
   # GET /orders/new
@@ -108,8 +111,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
@@ -142,8 +143,7 @@ class OrdersController < ApplicationController
           orders_arr << order 
           end
         end
-        return orders_arr
-        
+        return orders_arr  
     end 
     
     def get_order_id

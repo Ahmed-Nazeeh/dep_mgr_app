@@ -1,0 +1,55 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<section class="content-item" id="comments">
+    <div class="container">   
+    	<div class="row">
+            <div class="col-sm-8">
+                <%= form_with model: @comment do |form| %>
+                    <% if @comment.errors.any? %>
+                            <div id="error_explanation">
+                                <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this order from being saved:</h2>
+                                <ul>
+                                <% @comment.errors.each do |error| %>
+                                    <li><%= error.full_message %></li>
+                                <% end %>
+                                </ul>
+                            </div>
+                        <% end %>   
+                	<h3 class="pull-left">New Comment for order: <%= @order.order_number %></h3> 
+                        <div class="form-group">  
+                            <%= form.hidden_field :commentable_id, value: @order.id %>
+                            <%= form.submit "New", class: "Primery" %>
+                        </div>
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-sm-3 col-lg-2 hidden-xs">
+                            	<img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-9 col-lg-10">
+                                <%= form.text_area :text,value: @order.id, placeholder: "Your message", class: "form-control" %>
+                            </div>
+                        </div>  	
+                    </fieldset>
+                <% end %>
+
+                <h3><%= @comments.count %> Total Comments</h3>
+                
+                <% @comments.each do |comment| %>
+                <!-- COMMENT - START -->
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><%= user_comment_email(comment.user_id) %></h4> 
+                            <p><%= comment.text %></p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="fa fa-calendar"></i><%= comment.created_at %></li>
+                               <li><%= link_to "Edit", edit_comment_path(comment, order_id: @order), class: 'btn btn-primary mt-3' %></li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                <!-- COMMENT - END -->
+                <% end %>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :comments
+  # post 'post_comment', to: 'comments#create'
   resources :orders
   devise_for :users
   root 'home#index'
