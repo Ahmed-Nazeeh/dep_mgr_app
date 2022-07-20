@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :comments
-  # post 'post_comment', to: 'comments#create'
-  resources :orders
+  
+  resources :orders do 
+    resources :comments
+  end
   devise_for :users
   root 'home#index'
   get 'my_order', to: 'orders#my_orders'
