@@ -16,10 +16,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto float-right">
     <% if logged_in? %>  
-    <li class="btn btn-outline-light nav-item mr-4 style="width: 120px;" <%= 'active' if request.path == root_path %>">  
+    <li class="btn btn-outline-light nav-item mr-4" style=width: 120px;  <%= 'active' if request.path == root_path %>>  
         <%= link_to('Home', root_path , class: "nav-link text-white") %>
       </li>
-      <li class="btn btn-outline-light nav-item mr-4 style="width: 120px;" <%= 'active' if request.path == orders_path %>">
+      <li class="btn btn-outline-light nav-item mr-4" style=width: 120px;  <%= 'active' if request.path == orders_path %>>
         <%= link_to "Orders Status", orders_path, class: "nav-link text-white" %>
       </li>
 
@@ -58,3 +58,5 @@
     </ul>
   </div>
 </nav>
+
+        

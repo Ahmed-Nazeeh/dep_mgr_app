@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
   
   resources :orders do 
-    resources :comments
+    resources :comments do 
+      get 'like', to: 'likes#create'
+      delete 'dislike', to: 'likes#destroy'
+      # delete '/orders/:order_id/comments/:comment_id/likes/:id' => 'likes#destroy'
+      # resources :likes, only: %i[new create destroy]
+    end
   end
   devise_for :users
   root 'home#index'

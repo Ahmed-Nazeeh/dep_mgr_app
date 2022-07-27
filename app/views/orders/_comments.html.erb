@@ -13,7 +13,8 @@
                                 <% end %>
                                 </ul>
                             </div>
-                        <% end %>   
+                        <% end %> 
+                        
                 	<h3 class="pull-left">New Comment for order: <%= @order.order_number %></h3> 
                         <div class="form-group">  
                             
@@ -33,23 +34,8 @@
 
                 <h3><%= @comments.count %> Total Comments</h3>
                 
-                <% @comments.each do |comment| %>
-                <!-- COMMENT - START -->
-                    <div class="media">
-                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
-                        <div class="media-body">
-                            <h4 class="media-heading"><%= user_comment_email(comment.user_id) %></h4> 
-                            <p><%= comment.text %></p>
-                            <ul class="list-unstyled list-inline media-detail pull-left">
-                                <li><i class="fa fa-calendar"></i><%= comment.created_at %></li>
-                               <li><%= link_to "Edit", edit_order_comment_path(@order, comment), class: 'btn btn-primary mt-3' %></li>
-                               <li><%= link_to "Delete", order_comment_path(@order, comment), data: { confirm: 'Are your sure?' }, method: :delete ,class: 'btn btn-danger mt-3' %></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div id="likes"><%= render 'orders/old_comments' %></div>
                 
-                <!-- COMMENT - END -->
-                <% end %>
             </div>
         </div>
     </div>

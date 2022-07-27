@@ -1,0 +1,33 @@
+<% @comments.each do |comment| %>
+    <!-- COMMENT - START -->
+    <div class="media">
+        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a>
+        <div class="media-body">
+            <h4 class="media-heading"><%= user_comment_email(comment.user_id) %></h4> 
+            <p><%= comment.text %></p>
+            <ul class="list-unstyled list-inline media-detail pull-left">
+                <li ><i class="fa fa-calendar"></i><%= comment.created_at %></li>
+                <li><i class="fa fa-thumbs-up"></i><%= comment.likes.count if true %></li>
+                <li><%= link_to "Edit", edit_order_comment_path(@order, comment),
+                        class: 'btn btn-primary mt-2' %></li>
+                <li><%= link_to "Delete", order_comment_path(@order, comment), 
+                                        data: { confirm: 'Are your sure?' }, method: :delete ,
+                                        class: 'btn btn-danger mt-2' %></li>
+                <li>
+                        <% like_dislike_method(current_user.likes, comment.likes) %>
+                        <% if @my_like %>
+                            <%= link_to 'Dislike', order_comment_dislike_path(@order, comment, like_id: @my_like), 
+                                            method: :delete,
+                                            class: 'btn btn-dark', remote: true %>
+
+                        <% else %>
+                            <%= link_to 'Like', order_comment_like_path(@order, comment), 
+                                            class: 'btn btn-success mt-2', remote: true %>
+                        <% end %>
+
+                </li>
+            </ul>
+        </div>
+    </div>      
+    <!-- COMMENT - END -->
+<% end %>
